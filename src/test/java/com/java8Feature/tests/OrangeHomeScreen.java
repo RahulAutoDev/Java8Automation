@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
@@ -27,6 +28,7 @@ public class OrangeHomeScreen{
 		driver.findElement(By.xpath("//a[@id='log-in']")).click();
 		//Thread.sleep(5000);
 		WebDriverWait wait = new WebDriverWait(driver,10);
+		wait.until(ExpectedConditions.alertIsPresent());
 		List<WebElement> eleList = driver.findElements(By.tagName("span")).stream().
 						filter(e -> e.getText().trim().length() > 5).collect(Collectors.toList());
 		eleList.forEach(e -> System.out.println(e.getText()));
