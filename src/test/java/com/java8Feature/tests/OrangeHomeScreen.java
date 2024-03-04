@@ -27,8 +27,8 @@ public class OrangeHomeScreen{
 		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("a");
 		driver.findElement(By.xpath("//a[@id='log-in']")).click();
 		//Thread.sleep(5000);
-//		WebDriverWait wait = new WebDriverWait(driver,10);
-//		wait.until(ExpectedConditions.alertIsPresent());
+		//WebDriverWait wait = new WebDriverWait(driver,10);
+		wait.until(ExpectedConditions.alertIsPresent());
 		List<WebElement> eleList = driver.findElements(By.tagName("span")).stream().
 						filter(e -> e.getText().trim().length() > 5).collect(Collectors.toList());
 		eleList.forEach(e -> System.out.println(e.getText()));
